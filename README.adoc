@@ -1,0 +1,50 @@
+= Spring Data BOM
+
+image:https://jenkins.spring.io/buildStatus/icon?job=spring-data-bom%2Fmaster&subject=Build[link=https://jenkins.spring.io/view/SpringData/job/spring-data-bom/]
+
+This repository contains the Spring Data BOM (Bill of Materials).
+
+== Code of Conduct
+
+This project is governed by the link:CODE_OF_CONDUCT.adoc[Spring Code of Conduct]. By participating, you are expected to uphold this code of conduct. Please report unacceptable behavior to spring-code-of-conduct@pivotal.io.
+
+== Maven
+
+Usage in Maven
+
+```xml
+<dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.data</groupId>
+      <artifactId>spring-data-bom</artifactId>
+      <version>${calver.major.minor}</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+  </dependencies>
+</dependencyManagement>
+
+<dependencies>
+  <dependency>
+    <groupId>org.springframework.data</groupId>
+    <artifactId>spring-data-commons</artifactId>
+  </dependency>
+</dependencies>
+```
+
+== Gradle
+
+Usage in Gradle
+
+```groovy
+dependencies {
+  implementation platform("org.springframework.data:spring-data-bom:${calver.major.minor}")
+
+  implementation("org.springframework.data:spring-data-commons")
+}
+```
+
+== License
+
+Spring Data Build is Open Source software released under the https://www.apache.org/licenses/LICENSE-2.0.html[Apache 2.0 license].

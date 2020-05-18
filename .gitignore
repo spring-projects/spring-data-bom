@@ -1,0 +1,13 @@
+.DS_Store
+.flattened-pom.xml
+*.iml
+*.ipr
+*.iws
+*.orig
+target
+.springBeans
+.settings/
+.project
+.classpath
+.idea
+credentials.yml
