@@ -94,12 +94,6 @@
 			<artifactId>spring-data-elasticsearch</artifactId>
 		</dependency>
 
-		<!-- Spring Data Gemfire -->
-		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-gemfire</artifactId>
-		</dependency>
-
 		<!-- Spring Data Geode -->
 		<dependency>
 			<groupId>org.springframework.data</groupId>
