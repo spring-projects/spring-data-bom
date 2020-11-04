@@ -170,13 +170,6 @@
 				<version>3.5.0-SNAPSHOT</version>
 			</dependency>
 
-			<!-- Spring Data Solr -->
-			<dependency>
-				<groupId>org.springframework.data</groupId>
-				<artifactId>spring-data-solr</artifactId>
-				<version>4.4.0-SNAPSHOT</version>
-			</dependency>
-
 			<!-- Spring Data KeyValue -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>

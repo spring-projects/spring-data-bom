@@ -155,12 +155,6 @@
 			<artifactId>spring-data-rest-hal-explorer</artifactId>
 		</dependency>
 
-		<!-- Spring Data Solr -->
-		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-solr</artifactId>
-		</dependency>
-
 		<!-- Spring Data KeyValue -->
 		<dependency>
 			<groupId>org.springframework.data</groupId>
