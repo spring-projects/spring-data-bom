@@ -103,4 +103,15 @@
 		</profile>
 	</profiles>
 
+	<pluginRepositories>
+		<pluginRepository>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<id>bintray</id>
+			<name>bintray-plugins</name>
+			<url>https://jcenter.bintray.com</url>
+		</pluginRepository>
+	</pluginRepositories>
+
 </project>
