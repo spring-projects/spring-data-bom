@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.springframework.data</groupId>
 	<artifactId>spring-data-bom</artifactId>
-	<version>2021.1.0-SNAPSHOT</version>
+	<version>2022.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Spring Data Release Train - BOM</name>
@@ -48,7 +48,7 @@
 			<name>Apache License, Version 2.0</name>
 			<url>https://www.apache.org/licenses/LICENSE-2.0</url>
 			<comments>
-				Copyright 2010-2020 the original author or authors.
+				Copyright 2010 the original author or authors.
 
 				Licensed under the Apache License, Version 2.0 (the "License");
 				you may not use this file except in compliance with the License.
@@ -74,55 +74,67 @@
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-cassandra</artifactId>
-				<version>3.3.0-SNAPSHOT</version>
+				<version>4.0.0-SNAPSHOT</version>
 			</dependency>
 
 			<!-- Spring Data Commons -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-commons</artifactId>
-				<version>2.6.0-SNAPSHOT</version>
+				<version>3.0.0-SNAPSHOT</version>
 			</dependency>
 
 			<!-- Spring Data Couchbase -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-couchbase</artifactId>
-				<version>4.3.0-SNAPSHOT</version>
+				<version>5.0.0-SNAPSHOT</version>
 			</dependency>
 
 			<!-- Spring Data Elasticsearch -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-elasticsearch</artifactId>
-				<version>4.3.0-SNAPSHOT</version>
+				<version>5.0.0-SNAPSHOT</version>
 			</dependency>
 
 			<!-- Spring Data Geode -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-geode</artifactId>
-				<version>2.6.0-SNAPSHOT</version>
+				<version>3.0.0-SNAPSHOT</version>
 			</dependency>
 
 			<!-- Spring Data JDBC -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-jdbc</artifactId>
-				<version>2.3.0-SNAPSHOT</version>
+				<version>3.0.0-SNAPSHOT</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.data</groupId>
+				<artifactId>spring-data-r2dbc</artifactId>
+				<version>3.0.0-SNAPSHOT</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-relational</artifactId>
-				<version>2.3.0-SNAPSHOT</version>
+				<version>3.0.0-SNAPSHOT</version>
 			</dependency>
 
 			<!-- Spring Data JPA -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-jpa</artifactId>
-				<version>2.6.0-SNAPSHOT</version>
+				<version>3.0.0-SNAPSHOT</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.data</groupId>
+				<artifactId>spring-data-envers</artifactId>
+				<version>3.0.0-SNAPSHOT</version>
 			</dependency>
 
 			<!-- Spring Data MongoDB -->
@@ -136,59 +148,47 @@
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-neo4j</artifactId>
-				<version>6.2.0-SNAPSHOT</version>
-			</dependency>
-
-			<!-- Spring Data R2DBC -->
-			<dependency>
-				<groupId>org.springframework.data</groupId>
-				<artifactId>spring-data-r2dbc</artifactId>
-				<version>1.4.0-SNAPSHOT</version>
+				<version>7.0.0-SNAPSHOT</version>
 			</dependency>
 
 			<!-- Spring Data Redis -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-redis</artifactId>
-				<version>2.6.0-SNAPSHOT</version>
+				<version>3.0.0-SNAPSHOT</version>
 			</dependency>
 
 			<!-- Spring Data REST -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-rest-webmvc</artifactId>
-				<version>3.6.0-SNAPSHOT</version>
+				<version>4.0.0-SNAPSHOT</version>
 			</dependency>
+
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-rest-core</artifactId>
-				<version>3.6.0-SNAPSHOT</version>
+				<version>4.0.0-SNAPSHOT</version>
 			</dependency>
+
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-rest-hal-explorer</artifactId>
-				<version>3.6.0-SNAPSHOT</version>
+				<version>4.0.0-SNAPSHOT</version>
 			</dependency>
 
 			<!-- Spring Data KeyValue -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-keyvalue</artifactId>
-				<version>2.6.0-SNAPSHOT</version>
-			</dependency>
-
-			<!-- Spring Data Envers -->
-			<dependency>
-				<groupId>org.springframework.data</groupId>
-				<artifactId>spring-data-envers</artifactId>
-				<version>2.6.0-SNAPSHOT</version>
+				<version>3.0.0-SNAPSHOT</version>
 			</dependency>
 
 			<!-- Spring Data LDAP -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-ldap</artifactId>
-				<version>2.6.0-SNAPSHOT</version>
+				<version>3.0.0-SNAPSHOT</version>
 			</dependency>
 
 		</dependencies>
@@ -199,7 +199,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>flatten-maven-plugin</artifactId>
-				<version>1.2.2</version>
+				<version>1.2.7</version>
 				<executions>
 					<execution>
 						<id>flatten</id>
@@ -244,7 +244,7 @@
 						<plugin>
 							<groupId>org.jfrog.buildinfo</groupId>
 							<artifactId>artifactory-maven-plugin</artifactId>
-							<version>3.2.3</version>
+							<version>3.3.0</version>
 							<executions>
 								<execution>
 									<id>build-info</id>
@@ -300,7 +300,7 @@
 						<plugin>
 							<groupId>org.apache.maven.plugins</groupId>
 							<artifactId>maven-enforcer-plugin</artifactId>
-							<version>3.0.0-M3</version>
+							<version>3.0.0</version>
 							<executions>
 								<execution>
 									<id>enforce-release-rules</id>
@@ -311,7 +311,7 @@
 									<configuration>
 										<rules>
 											<requireJavaVersion>
-												<version>[1.8,1.9)</version>
+												<version>17</version>
 											</requireJavaVersion>
 											<requireReleaseDeps/>
 											<requireReleaseVersion/>
