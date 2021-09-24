@@ -3,8 +3,8 @@ pipeline {
 
 	triggers {
 		pollSCM 'H/10 * * * *'
-		upstream(upstreamProjects: "spring-data-commons/main,spring-data-cassandra/main,spring-data-couchbase/main,spring-data-elasticsearch/main,spring-data-gemfire/main," +
-			"spring-data-geode/main,spring-data-jpa/main,spring-data-ldap/main,spring-data-mongodb/main,spring-data-neo4j/main,spring-data-redis/main,spring-data-solr/main", threshold: hudson.model.Result.SUCCESS)
+		upstream(upstreamProjects: "spring-data-commons/main,spring-data-cassandra/main,spring-data-couchbase/main,spring-data-elasticsearch/main," +
+			"spring-data-geode/main,spring-data-jpa/main,spring-data-ldap/main,spring-data-mongodb/main,spring-data-neo4j/main,spring-data-redis/main", threshold: hudson.model.Result.SUCCESS)
 	}
 
 	options {
@@ -15,8 +15,9 @@ pipeline {
 	stages {
 		stage('Verify BOM Dependencies') {
 			when {
+				beforeAgent(true)
 				anyOf {
-					branch 'main'
+					branch(pattern: "main|(\\d\\.\\d\\.x)", comparator: "REGEXP")
 					not { triggeredBy 'UpstreamCause' }
 				}
 			}
@@ -32,7 +33,7 @@ pipeline {
 			steps {
 				script {
 					docker.withRegistry('', 'hub.docker.com-springbuildmaster') {
-						docker.image('adoptopenjdk/openjdk8:latest').inside('-v $HOME:/tmp/jenkins-home') {
+						docker.image('openjdk:17-bullseye').inside('-v $HOME:/tmp/jenkins-home') {
 							sh 'MAVEN_OPTS="-Duser.name=jenkins -Duser.home=/tmp/jenkins-home" ./mvnw -Pwith-bom-client verify -B -U'
 						}
 					}
@@ -42,8 +43,9 @@ pipeline {
 
 		stage('Build project and release to artifactory') {
 			when {
+				beforeAgent(true)
 				anyOf {
-					branch 'main'
+					branch(pattern: "main|(\\d\\.\\d\\.x)", comparator: "REGEXP")
 					not { triggeredBy 'UpstreamCause' }
 				}
 			}
@@ -59,7 +61,7 @@ pipeline {
 			steps {
 				script {
 					docker.withRegistry('', 'hub.docker.com-springbuildmaster') {
-						docker.image('adoptopenjdk/openjdk8:latest').inside('-v $HOME:/tmp/jenkins-home') {
+						docker.image('openjdk:17-bullseye').inside('-v $HOME:/tmp/jenkins-home') {
 							sh 'MAVEN_OPTS="-Duser.name=jenkins -Duser.home=/tmp/jenkins-home" ./mvnw -Partifactory ' +
 									'-Dartifactory.server=https://repo.spring.io ' +
 									"-Dartifactory.username=${ARTIFACTORY_USR} " +
