@@ -17,7 +17,7 @@ pipeline {
 			when {
 				beforeAgent(true)
 				anyOf {
-					branch(pattern: "main|(\\d\\.\\d\\.x)", comparator: "REGEXP")
+					branch(pattern: "main|(\\d+\\.\\d+\\.x)", comparator: "REGEXP")
 					not { triggeredBy 'UpstreamCause' }
 				}
 			}
@@ -45,7 +45,7 @@ pipeline {
 			when {
 				beforeAgent(true)
 				anyOf {
-					branch(pattern: "main|(\\d\\.\\d\\.x)", comparator: "REGEXP")
+					branch(pattern: "main|(\\d+\\.\\d+\\.x)", comparator: "REGEXP")
 					not { triggeredBy 'UpstreamCause' }
 				}
 			}
