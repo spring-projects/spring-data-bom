@@ -1,3 +1,9 @@
+def p = [:]
+node {
+    checkout scm
+    p = readProperties interpolate: true, file: 'ci/pipeline.properties'
+}
+
 pipeline {
 	agent none
 
@@ -33,7 +39,7 @@ pipeline {
 			steps {
 				script {
 					docker.withRegistry('', 'hub.docker.com-springbuildmaster') {
-						docker.image('openjdk:17-bullseye').inside('-v $HOME:/tmp/jenkins-home') {
+						docker.image(p['docker.java.lts.image']).inside(p['docker.java.inside.basic']) {
 							sh 'MAVEN_OPTS="-Duser.name=jenkins -Duser.home=/tmp/jenkins-home" ./mvnw -Pwith-bom-client verify -B -U'
 						}
 					}
@@ -61,7 +67,7 @@ pipeline {
 			steps {
 				script {
 					docker.withRegistry('', 'hub.docker.com-springbuildmaster') {
-						docker.image('openjdk:17-bullseye').inside('-v $HOME:/tmp/jenkins-home') {
+						docker.image(p['docker.java.lts.image']).inside(p['docker.java.inside.basic']) {
 							sh 'MAVEN_OPTS="-Duser.name=jenkins -Duser.home=/tmp/jenkins-home" ./mvnw -Partifactory ' +
 									'-Dartifactory.server=https://repo.spring.io ' +
 									"-Dartifactory.username=${ARTIFACTORY_USR} " +
