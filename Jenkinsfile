@@ -9,8 +9,8 @@ pipeline {
 
 	triggers {
 		pollSCM 'H/10 * * * *'
-		upstream(upstreamProjects: "spring-data-commons/master,spring-data-cassandra/master,spring-data-couchbase/master,spring-data-elasticsearch/master,spring-data-gemfire/master," +
-			"spring-data-geode/master,spring-data-jpa/master,spring-data-ldap/master,spring-data-mongodb/master,spring-data-neo4j/master,spring-data-redis/master,spring-data-solr/master", threshold: hudson.model.Result.SUCCESS)
+		upstream(upstreamProjects: "spring-data-commons/2.5.x,spring-data-cassandra/2.5.x,spring-data-couchbase/4.2.x,spring-data-elasticsearch/4.2.x," +
+			"spring-data-geode/2.5.x,spring-data-jpa/2.5.x,spring-data-ldap/2.5.x,spring-data-mongodb/3.2.x,spring-data-neo4j/6.1.x,spring-data-redis/2.5.x", threshold: hudson.model.Result.SUCCESS)
 	}
 
 	options {
@@ -21,8 +21,9 @@ pipeline {
 	stages {
 		stage('Verify BOM Dependencies') {
 			when {
+				beforeAgent(true)
 				anyOf {
-					branch 'master'
+					branch(pattern: "main|(\\d+\\.\\d+\\.x)", comparator: "REGEXP")
 					not { triggeredBy 'UpstreamCause' }
 				}
 			}
@@ -48,8 +49,9 @@ pipeline {
 
 		stage('Build project and release to artifactory') {
 			when {
+				beforeAgent(true)
 				anyOf {
-					branch 'master'
+					branch(pattern: "main|(\\d+\\.\\d+\\.x)", comparator: "REGEXP")
 					not { triggeredBy 'UpstreamCause' }
 				}
 			}
