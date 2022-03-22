@@ -295,32 +295,6 @@
 				<pluginManagement>
 					<plugins>
 
-						<!-- Make sure we build on Java 8 with only release dependencies -->
-
-						<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
-							<artifactId>maven-enforcer-plugin</artifactId>
-							<version>3.0.0-M3</version>
-							<executions>
-								<execution>
-									<id>enforce-release-rules</id>
-									<phase>validate</phase>
-									<goals>
-										<goal>enforce</goal>
-									</goals>
-									<configuration>
-										<rules>
-											<requireJavaVersion>
-												<version>[1.8,1.9)</version>
-											</requireJavaVersion>
-											<requireReleaseDeps/>
-											<requireReleaseVersion/>
-										</rules>
-									</configuration>
-								</execution>
-						</executions>
-						</plugin>
-
 						<!-- Sign JARs -->
 
 						<plugin>
@@ -360,11 +334,6 @@
 
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-enforcer-plugin</artifactId>
-					</plugin>
-
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-gpg-plugin</artifactId>
 					</plugin>
 
@@ -384,6 +353,61 @@
 				</repository>
 			</distributionManagement>
 
+		</profile>
+
+		<profile>
+			<id>release</id>
+			<build>
+				<pluginManagement>
+					<plugins>
+						<!-- Make sure we build on Java 8 with only release dependencies -->
+
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-enforcer-plugin</artifactId>
+							<version>3.0.0</version>
+							<executions>
+								<execution>
+									<id>enforce-release-rules</id>
+									<phase>validate</phase>
+									<goals>
+										<goal>enforce</goal>
+									</goals>
+									<configuration>
+										<rules>
+											<requireJavaVersion>
+												<version>[1.8,1.9)</version>
+											</requireJavaVersion>
+											<requireReleaseDeps/>
+											<requireReleaseVersion/>
+											<NoSnapshotDependenciesInDependencyManagementRule
+													implementation="de.smartics.maven.enforcer.rule.NoSnapshotsInDependencyManagementRule">
+												<onlyWhenRelease>true</onlyWhenRelease>
+											</NoSnapshotDependenciesInDependencyManagementRule>
+										</rules>
+									</configuration>
+								</execution>
+							</executions>
+							<dependencies>
+								<dependency>
+									<groupId>de.smartics.rules</groupId>
+									<artifactId>smartics-enforcer-rules</artifactId>
+									<version>1.0.2</version>
+								</dependency>
+							</dependencies>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+
+				<plugins>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-enforcer-plugin</artifactId>
+					</plugin>
+
+				</plugins>
+			</build>
 		</profile>
 
 	</profiles>
