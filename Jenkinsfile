@@ -9,8 +9,8 @@ pipeline {
 
 	triggers {
 		pollSCM 'H/10 * * * *'
-		upstream(upstreamProjects: "spring-data-commons/main,spring-data-cassandra/main,spring-data-couchbase/main,spring-data-elasticsearch/main," +
-			"spring-data-geode/main,spring-data-jpa/main,spring-data-ldap/main,spring-data-mongodb/main,spring-data-neo4j/main,spring-data-redis/main", threshold: hudson.model.Result.SUCCESS)
+		upstream(upstreamProjects: "spring-data-commons/2.7.x,spring-data-cassandra/3.4.x,spring-data-couchbase/4.4.x,spring-data-elasticsearch/4.4.x," +
+			"spring-data-geode/2.7.x,spring-data-jpa/2.7.x,spring-data-ldap/2.7.x,spring-data-mongodb/3.4.x,spring-data-neo4j/6.3.x,spring-data-redis/2.7.x", threshold: hudson.model.Result.SUCCESS)
 	}
 
 	options {
