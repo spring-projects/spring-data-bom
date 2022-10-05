@@ -98,13 +98,6 @@
 				<version>5.0.0-SNAPSHOT</version>
 			</dependency>
 
-			<!-- Spring Data Geode -->
-			<dependency>
-				<groupId>org.springframework.data</groupId>
-				<artifactId>spring-data-geode</artifactId>
-				<version>3.0.0-SNAPSHOT</version>
-			</dependency>
-
 			<!-- Spring Data JDBC -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>

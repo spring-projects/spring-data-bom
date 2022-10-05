@@ -94,12 +94,6 @@
 			<artifactId>spring-data-elasticsearch</artifactId>
 		</dependency>
 
-		<!-- Spring Data Geode -->
-		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-geode</artifactId>
-		</dependency>
-
 		<!-- Spring Data JDBC -->
 		<dependency>
 			<groupId>org.springframework.data</groupId>
