@@ -49,7 +49,7 @@ pipeline {
 			when {
 				beforeAgent(true)
 				allOf {
-					branch(pattern: "main|(\\d\\.\\d\\.x)", comparator: "REGEXP")
+					branch(pattern: "main|(\\d+\\.\\d+\\.x)", comparator: "REGEXP")
 					not { triggeredBy 'UpstreamCause' }
 				}
 			}
