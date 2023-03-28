@@ -47,6 +47,36 @@ pipeline {
 			}
 		}
 
+		stage("Verify other configurations") {
+			when {
+				beforeAgent(true)
+				allOf {
+					branch(pattern: "main|(\\d\\.\\d\\.x)", comparator: "REGEXP")
+					not { triggeredBy 'UpstreamCause' }
+				}
+			}
+			parallel {
+				stage("verify (next)") {
+					agent {
+						label 'data'
+					}
+					options { timeout(time: 30, unit: 'MINUTES') }
+					environment {
+						ARTIFACTORY = credentials("${p['artifactory.credentials']}")
+					}
+					steps {
+						script {
+							docker.withRegistry(p['docker.registry'], p['docker.credentials']) {
+								docker.image(p['docker.java.next.image']).inside(p['docker.java.inside.basic']) {
+									sh 'MAVEN_OPTS="-Duser.name=jenkins -Duser.home=/tmp/jenkins-home" ./mvnw -Pwith-bom-client verify -B -U'
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
 		stage('Build project and release to artifactory') {
 			when {
 				beforeAgent(true)
