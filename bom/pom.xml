@@ -418,11 +418,4 @@
 
 	</profiles>
 
-	<pluginRepositories>
-		<pluginRepository>
-			<id>spring-libs-release</id>
-			<url>https://repo.spring.io/libs-release</url>
-		</pluginRepository>
-	</pluginRepositories>
-
 </project>
