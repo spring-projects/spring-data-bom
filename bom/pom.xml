@@ -43,6 +43,21 @@
 		</developer>
 	</developers>
 
+	<properties>
+		<spring-data-cassandra.version>4.2.0-SNAPSHOT</spring-data-cassandra.version>
+		<spring-data-commons.version>3.2.0-SNAPSHOT</spring-data-commons.version>
+		<spring-data-couchbase.version>5.2.0-SNAPSHOT</spring-data-couchbase.version>
+		<spring-data-elasticsearch.version>5.2.0-SNAPSHOT</spring-data-elasticsearch.version>
+		<spring-data-jdbc.version>3.2.0-SNAPSHOT</spring-data-jdbc.version>
+		<spring-data-jpa.version>3.2.0-SNAPSHOT</spring-data-jpa.version>
+		<spring-data-mongodb.version>4.2.0-SNAPSHOT</spring-data-mongodb.version>
+		<spring-data-neo4j.version>7.2.0-SNAPSHOT</spring-data-neo4j.version>
+		<spring-data-redis.version>3.2.0-SNAPSHOT</spring-data-redis.version>
+		<spring-data-rest.version>4.2.0-SNAPSHOT</spring-data-rest.version>
+		<spring-data-keyvalue.version>3.2.0-SNAPSHOT</spring-data-keyvalue.version>
+		<spring-data-ldap.version>3.2.0-SNAPSHOT</spring-data-ldap.version>
+	</properties>
+
 	<licenses>
 		<license>
 			<name>Apache License, Version 2.0</name>
@@ -74,114 +89,114 @@
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-cassandra</artifactId>
-				<version>4.2.0-SNAPSHOT</version>
+				<version>${spring-data-cassandra.version}</version>
 			</dependency>
 
 			<!-- Spring Data Commons -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-commons</artifactId>
-				<version>3.2.0-SNAPSHOT</version>
+				<version>${spring-data-commons.version}</version>
 			</dependency>
 
 			<!-- Spring Data Couchbase -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-couchbase</artifactId>
-				<version>5.2.0-SNAPSHOT</version>
+				<version>${spring-data-couchbase.version}</version>
 			</dependency>
 
 			<!-- Spring Data Elasticsearch -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-elasticsearch</artifactId>
-				<version>5.2.0-SNAPSHOT</version>
+				<version>${spring-data-elasticsearch.version}</version>
 			</dependency>
 
 			<!-- Spring Data JDBC -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-jdbc</artifactId>
-				<version>3.2.0-SNAPSHOT</version>
+				<version>${spring-data-jdbc.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-r2dbc</artifactId>
-				<version>3.2.0-SNAPSHOT</version>
+				<version>${spring-data-jdbc.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-relational</artifactId>
-				<version>3.2.0-SNAPSHOT</version>
+				<version>${spring-data-jdbc.version}</version>
 			</dependency>
 
 			<!-- Spring Data JPA -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-jpa</artifactId>
-				<version>3.2.0-SNAPSHOT</version>
+				<version>${sring-data-jpa.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-envers</artifactId>
-				<version>3.2.0-SNAPSHOT</version>
+				<version>${spring-data-jpa.version}</version>
 			</dependency>
 
 			<!-- Spring Data MongoDB -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-mongodb</artifactId>
-				<version>4.2.0-SNAPSHOT</version>
+				<version>${spring-data-mongodb.version}</version>
 			</dependency>
 
 			<!-- Spring Data Neo4j -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-neo4j</artifactId>
-				<version>7.2.0-SNAPSHOT</version>
+				<version>${spring-data-neo4j.version}</version>
 			</dependency>
 
 			<!-- Spring Data Redis -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-redis</artifactId>
-				<version>3.2.0-SNAPSHOT</version>
+				<version>${spring-data-redis.version}</version>
 			</dependency>
 
 			<!-- Spring Data REST -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-rest-webmvc</artifactId>
-				<version>4.2.0-SNAPSHOT</version>
+				<version>${spring-data-rest.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-rest-core</artifactId>
-				<version>4.2.0-SNAPSHOT</version>
+				<version>${spring-data-rest.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-rest-hal-explorer</artifactId>
-				<version>4.2.0-SNAPSHOT</version>
+				<version>${spring-data-rest.version}</version>
 			</dependency>
 
 			<!-- Spring Data KeyValue -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-keyvalue</artifactId>
-				<version>3.2.0-SNAPSHOT</version>
+				<version>${spring-data-keyvalue.version}</version>
 			</dependency>
 
 			<!-- Spring Data LDAP -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-ldap</artifactId>
-				<version>3.2.0-SNAPSHOT</version>
+				<version>${spring-data-ldap.version}</version>
 			</dependency>
 
 		</dependencies>
