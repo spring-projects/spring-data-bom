@@ -1,4 +1,4 @@
-= Spring Data BOM image:https://jenkins.spring.io/buildStatus/icon?job=spring-data-bom%2Fmain&subject=Build[link=https://jenkins.spring.io/view/SpringData/job/spring-data-bom/]
+= Spring Data BOM image:https://jenkins.spring.io/buildStatus/icon?job=spring-data-bom%2Fmain&subject=Build[link=https://jenkins.spring.io/view/SpringData/job/spring-data-bom/] image:https://img.shields.io/badge/Revved%20up%20by-Gradle%20Enterprise-06A0CE?logo=Gradle&labelColor=02303A["Revved up by Gradle Enterprise", link="https://ge.spring.io/scans?search.rootProjectNames=Spring Data Release Train - BOM Infrastructure"]
 
 This repository contains the Spring Data BOM (Bill of Materials).
 

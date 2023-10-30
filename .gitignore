@@ -11,3 +11,4 @@ target
 .classpath
 .idea
 credentials.yml
+.mvn/.gradle-enterprise

@@ -34,12 +34,18 @@ pipeline {
 
 			environment {
 				ARTIFACTORY = credentials("${p['artifactory.credentials']}")
+				DEVELOCITY_CACHE = credentials("${p['develocity.cache.credentials']}")
+				DEVELOCITY_ACCESS_KEY = credentials("${p['develocity.access-key']}")
 			}
 
 			steps {
 				script {
 					docker.image(p['docker.java.main.image']).inside(p['docker.java.inside.basic']) {
-						sh 'MAVEN_OPTS="-Duser.name=jenkins -Duser.home=/tmp/jenkins-home" ./mvnw -Pwith-bom-client verify -B -U'
+						sh 'MAVEN_OPTS="-Duser.name=jenkins -Duser.home=/tmp/jenkins-home" ' +
+										'DEVELOCITY_CACHE_USERNAME=${DEVELOCITY_CACHE_USR} ' +
+										'DEVELOCITY_CACHE_PASSWORD=${DEVELOCITY_CACHE_PSW} ' +
+										'GRADLE_ENTERPRISE_ACCESS_KEY=${DEVELOCITY_ACCESS_KEY} ' +
+										'./mvnw -Pwith-bom-client verify -B -U'
 					}
 				}
 			}
@@ -61,11 +67,17 @@ pipeline {
 					options { timeout(time: 30, unit: 'MINUTES') }
 					environment {
 						ARTIFACTORY = credentials("${p['artifactory.credentials']}")
+						DEVELOCITY_CACHE = credentials("${p['develocity.cache.credentials']}")
+						DEVELOCITY_ACCESS_KEY = credentials("${p['develocity.access-key']}")
 					}
 					steps {
 						script {
 							docker.image(p['docker.java.next.image']).inside(p['docker.java.inside.basic']) {
-								sh 'MAVEN_OPTS="-Duser.name=jenkins -Duser.home=/tmp/jenkins-home" ./mvnw -Pwith-bom-client verify -B -U'
+								sh 'MAVEN_OPTS="-Duser.name=jenkins -Duser.home=/tmp/jenkins-home" ' +
+												'DEVELOCITY_CACHE_USERNAME=${DEVELOCITY_CACHE_USR} ' +
+												'DEVELOCITY_CACHE_PASSWORD=${DEVELOCITY_CACHE_PSW} ' +
+												'GRADLE_ENTERPRISE_ACCESS_KEY=${DEVELOCITY_ACCESS_KEY} ' +
+								 				'./mvnw -Pwith-bom-client verify -B -U'
 							}
 						}
 					}
@@ -88,12 +100,18 @@ pipeline {
 
 			environment {
 				ARTIFACTORY = credentials("${p['artifactory.credentials']}")
+				DEVELOCITY_CACHE = credentials("${p['develocity.cache.credentials']}")
+				DEVELOCITY_ACCESS_KEY = credentials("${p['develocity.access-key']}")
 			}
 
 			steps {
 				script {
 					docker.image(p['docker.java.main.image']).inside(p['docker.java.inside.basic']) {
-						sh 'MAVEN_OPTS="-Duser.name=jenkins -Duser.home=/tmp/jenkins-home" ./mvnw -Partifactory ' +
+						sh 'MAVEN_OPTS="-Duser.name=jenkins -Duser.home=/tmp/jenkins-home" ' +
+								'DEVELOCITY_CACHE_USERNAME=${DEVELOCITY_CACHE_USR} ' +
+								'DEVELOCITY_CACHE_PASSWORD=${DEVELOCITY_CACHE_PSW} ' +
+								'GRADLE_ENTERPRISE_ACCESS_KEY=${DEVELOCITY_ACCESS_KEY} ' +
+								'./mvnw -Partifactory ' +
 								'-Dartifactory.server=https://repo.spring.io ' +
 								"-Dartifactory.username=${ARTIFACTORY_USR} " +
 								"-Dartifactory.password=${ARTIFACTORY_PSW} " +
