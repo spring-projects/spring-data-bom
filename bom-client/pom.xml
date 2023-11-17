@@ -9,7 +9,7 @@
 	<parent>
 		<groupId>org.springframework.data</groupId>
 		<artifactId>spring-data-bom</artifactId>
-		<version>2021.2.18</version>
+		<version>2021.2.19-SNAPSHOT</version>
 		<relativePath>../bom</relativePath>
 	</parent>
 
