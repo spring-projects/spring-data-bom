@@ -411,7 +411,7 @@
 
 	</profiles>
 
-<repositories>
+	<repositories>
 		<repository>
 			<id>spring-snapshot</id>
 			<url>https://repo.spring.io/snapshot</url>
@@ -426,4 +426,5 @@
 			<id>spring-milestone</id>
 			<url>https://repo.spring.io/milestone</url>
 		</repository>
-	</repositories></project>
+	</repositories>
+</project>
