@@ -9,7 +9,7 @@ pipeline {
 
 	triggers {
 		pollSCM 'H/10 * * * *'
-		upstream(upstreamProjects: "spring-data-commons/main,spring-data-cassandra/4.3.x,spring-data-couchbase/5.3.x,spring-data-elasticsearch/5.3.x," +
+		upstream(upstreamProjects: "spring-data-commons/3.3.x,spring-data-cassandra/4.3.x,spring-data-couchbase/5.3.x,spring-data-elasticsearch/5.3.x," +
 			"spring-data-rest/4.3.x,spring-data-jpa/3.3.x,spring-data-ldap/3.3.x,spring-data-mongodb/4.3.x,spring-data-neo4j/7.3.x,spring-data-redis/3.3.x", threshold: hudson.model.Result.SUCCESS)
 	}
 
