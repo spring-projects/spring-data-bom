@@ -15,7 +15,8 @@ pipeline {
 
 	options {
 		disableConcurrentBuilds()
-		buildDiscarder(logRotator(numToKeepStr: '7'))
+		buildDiscarder(logRotator(numToKeepStr: '10'))
+		quietPeriod(10)
 	}
 
 	stages {
