@@ -259,7 +259,6 @@
 											<buildName>{{artifactory.build-name}}</buildName>
 											<buildNumber>{{artifactory.build-number}}</buildNumber>
 											<buildUrl>{{BUILD_URL}}</buildUrl>
-											<buildRetentionCount>10</buildRetentionCount>
 										</buildInfo>
 									</configuration>
 								</execution>
