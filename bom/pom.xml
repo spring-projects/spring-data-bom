@@ -237,7 +237,7 @@
 						<plugin>
 							<groupId>org.jfrog.buildinfo</groupId>
 							<artifactId>artifactory-maven-plugin</artifactId>
-							<version>3.6.2</version>
+							<version>3.7.0</version>
 							<executions>
 								<execution>
 									<id>build-info</id>
@@ -259,6 +259,7 @@
 											<buildName>{{artifactory.build-name}}</buildName>
 											<buildNumber>{{artifactory.build-number}}</buildNumber>
 											<buildUrl>{{BUILD_URL}}</buildUrl>
+											<project>{{artifactory.project}}</project>
 										</buildInfo>
 									</configuration>
 								</execution>
