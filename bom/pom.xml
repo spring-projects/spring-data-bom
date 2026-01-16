@@ -74,114 +74,114 @@
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-cassandra</artifactId>
-				<version>5.0.2</version>
+				<version>5.0.3-SNAPSHOT</version>
 			</dependency>
 
 			<!-- Spring Data Commons -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-commons</artifactId>
-				<version>4.0.2</version>
+				<version>4.0.3-SNAPSHOT</version>
 			</dependency>
 
 			<!-- Spring Data Couchbase -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-couchbase</artifactId>
-				<version>6.0.2</version>
+				<version>6.0.3-SNAPSHOT</version>
 			</dependency>
 
 			<!-- Spring Data Elasticsearch -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-elasticsearch</artifactId>
-				<version>6.0.2</version>
+				<version>6.0.3-SNAPSHOT</version>
 			</dependency>
 
 			<!-- Spring Data JDBC -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-jdbc</artifactId>
-				<version>4.0.2</version>
+				<version>4.0.3-SNAPSHOT</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-r2dbc</artifactId>
-				<version>4.0.2</version>
+				<version>4.0.3-SNAPSHOT</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-relational</artifactId>
-				<version>4.0.2</version>
+				<version>4.0.3-SNAPSHOT</version>
 			</dependency>
 
 			<!-- Spring Data JPA -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-jpa</artifactId>
-				<version>4.0.2</version>
+				<version>4.0.3-SNAPSHOT</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-envers</artifactId>
-				<version>4.0.2</version>
+				<version>4.0.3-SNAPSHOT</version>
 			</dependency>
 
 			<!-- Spring Data MongoDB -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-mongodb</artifactId>
-				<version>5.0.2</version>
+				<version>5.0.3-SNAPSHOT</version>
 			</dependency>
 
 			<!-- Spring Data Neo4j -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-neo4j</artifactId>
-				<version>8.0.2</version>
+				<version>8.0.3-SNAPSHOT</version>
 			</dependency>
 
 			<!-- Spring Data Redis -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-redis</artifactId>
-				<version>4.0.2</version>
+				<version>4.0.3-SNAPSHOT</version>
 			</dependency>
 
 			<!-- Spring Data REST -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-rest-webmvc</artifactId>
-				<version>5.0.2</version>
+				<version>5.0.3-SNAPSHOT</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-rest-core</artifactId>
-				<version>5.0.2</version>
+				<version>5.0.3-SNAPSHOT</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-rest-hal-explorer</artifactId>
-				<version>5.0.2</version>
+				<version>5.0.3-SNAPSHOT</version>
 			</dependency>
 
 			<!-- Spring Data KeyValue -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-keyvalue</artifactId>
-				<version>4.0.2</version>
+				<version>4.0.3-SNAPSHOT</version>
 			</dependency>
 
 			<!-- Spring Data LDAP -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-ldap</artifactId>
-				<version>4.0.2</version>
+				<version>4.0.3-SNAPSHOT</version>
 			</dependency>
 
 		</dependencies>
@@ -367,7 +367,19 @@
 	</profiles>
 
 	<repositories>
-		
-		
+		<repository>
+			<id>spring-snapshot</id>
+			<url>https://repo.spring.io/snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</repository>
+		<repository>
+			<id>spring-milestone</id>
+			<url>https://repo.spring.io/milestone</url>
+		</repository>
 	</repositories>
 </project>
