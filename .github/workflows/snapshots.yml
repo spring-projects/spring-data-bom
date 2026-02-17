@@ -1,8 +1,9 @@
 name: Snapshots
 
 on:
+  workflow_dispatch:
   push:
-    branches: [ main ]
+    branches: [ main, '2025.1.x', '2025.0.x' ]
 
 permissions: read-all
 
@@ -13,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - name: Setup Java and Maven
-        uses: spring-projects/spring-data-release/actions/setup-maven@main
+        uses: spring-projects/spring-data-build/actions/setup-maven@main
         with:
           java-version: 'main'
           develocity-access-key: ''
@@ -26,13 +27,13 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - name: Setup Java and Maven
-        uses: spring-projects/spring-data-release/actions/setup-maven@main
+        uses: spring-projects/spring-data-build/actions/setup-maven@main
         with:
           java-version: 'main'
           develocity-access-key: '${{ secrets.DEVELOCITY_ACCESS_KEY }}'
       - name: Deploy to Artifactory
         if: ${{ github.repository_owner == 'spring-projects' }}
-        uses: spring-projects/spring-data-release/actions/maven-artifactory-deploy@main
+        uses: spring-projects/spring-data-build/actions/maven-artifactory-deploy@main
         with:
           build-name: 'spring-data-bom'
           additional-options: '-Ddevelocity.cache.local.enabled=false -Ddevelocity.cache.remove.enabled=false'
