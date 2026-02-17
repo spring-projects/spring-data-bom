@@ -1,0 +1,41 @@
+name: Snapshots
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main, '2025.1.x', '2025.0.x' ]
+
+permissions: read-all
+
+jobs:
+  verify:
+    name: Verify artifacts with BOM client
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Setup Java and Maven
+        uses: spring-projects/spring-data-build/actions/setup-maven@4.0.x
+        with:
+          java-version: 'main'
+          develocity-access-key: ''
+      - name: Verify Artifacts with BOM client
+        run: ./mvnw -Ddevelocity.cache.local.enabled=false -Ddevelocity.cache.remove.enabled=false -Pwith-bom-client verify -B -U
+  build-snapshots:
+    name: Build and deploy snapshots
+    runs-on: ubuntu-latest
+    needs: verify
+    steps:
+      - uses: actions/checkout@v6
+      - name: Setup Java and Maven
+        uses: spring-projects/spring-data-build/actions/setup-maven@4.0.x
+        with:
+          java-version: 'main'
+          develocity-access-key: '${{ secrets.DEVELOCITY_ACCESS_KEY }}'
+      - name: Deploy to Artifactory
+        if: ${{ github.repository_owner == 'spring-projects' }}
+        uses: spring-projects/spring-data-build/actions/maven-artifactory-deploy@4.0.x
+        with:
+          build-name: 'spring-data-bom'
+          additional-options: '-Ddevelocity.cache.local.enabled=false -Ddevelocity.cache.remove.enabled=false'
+          username: '${{ secrets.ARTIFACTORY_USERNAME }}'
+          password: '${{ secrets.ARTIFACTORY_PASSWORD }}'

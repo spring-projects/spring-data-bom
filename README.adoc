@@ -1,4 +1,4 @@
-= Spring Data BOM image:https://jenkins.spring.io/buildStatus/icon?job=spring-data-bom%2Fmain&subject=Build[link=https://jenkins.spring.io/view/SpringData/job/spring-data-bom/]
+= Spring Data BOM
 
 This repository contains the Spring Data BOM (Bill of Materials).
 
