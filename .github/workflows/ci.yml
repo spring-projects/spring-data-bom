@@ -14,11 +14,11 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - name: Setup Java and Maven
-        uses: spring-projects/spring-data-build/actions/setup-maven@4.0.x
+        uses: spring-projects/spring-data-build/actions/setup-maven@3.5.x
         with:
           java-version: 'main'
           develocity-access-key: '${{ secrets.DEVELOCITY_ACCESS_KEY }}'
       - name: Build
-        uses: spring-projects/spring-data-build/actions/maven-build@4.0.x
+        uses: spring-projects/spring-data-build/actions/maven-build@3.5.x
         with:
            additional-options: '-Ddevelocity.cache.local.enabled=false -Ddevelocity.cache.remove.enabled=false -Pwith-bom-client'

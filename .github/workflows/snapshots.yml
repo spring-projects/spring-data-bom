@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - name: Setup Java and Maven
-        uses: spring-projects/spring-data-build/actions/setup-maven@4.0.x
+        uses: spring-projects/spring-data-build/actions/setup-maven@3.5.x
         with:
           java-version: 'main'
           develocity-access-key: ''
@@ -27,13 +27,13 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - name: Setup Java and Maven
-        uses: spring-projects/spring-data-build/actions/setup-maven@4.0.x
+        uses: spring-projects/spring-data-build/actions/setup-maven@3.5.x
         with:
           java-version: 'main'
           develocity-access-key: '${{ secrets.DEVELOCITY_ACCESS_KEY }}'
       - name: Deploy to Artifactory
         if: ${{ github.repository_owner == 'spring-projects' }}
-        uses: spring-projects/spring-data-build/actions/maven-artifactory-deploy@4.0.x
+        uses: spring-projects/spring-data-build/actions/maven-artifactory-deploy@3.5.x
         with:
           build-name: 'spring-data-bom'
           additional-options: '-Ddevelocity.cache.local.enabled=false -Ddevelocity.cache.remove.enabled=false'
