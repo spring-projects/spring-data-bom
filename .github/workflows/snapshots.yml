@@ -3,7 +3,7 @@ name: Snapshots
 on:
   workflow_dispatch:
   push:
-    branches: [ main, '2025.1.x', '2025.0.x' ]
+    branches: [ main ]
 
 permissions: read-all
 
