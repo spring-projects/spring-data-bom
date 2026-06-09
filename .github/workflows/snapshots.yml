@@ -3,7 +3,7 @@ name: Snapshots
 on:
   workflow_dispatch:
   push:
-    branches: [ main ]
+    branches: [ 2026.0.x ]
 
 permissions: read-all
 
@@ -14,12 +14,12 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - name: Setup Java and Maven
-        uses: spring-projects/spring-data-build/actions/setup-maven@main
+        uses: spring-projects/spring-data-build/actions/setup-maven@4.1.x
         with:
           java-version: 'main'
           develocity-access-key: ''
       - name: Verify Artifacts with BOM client
-        uses: spring-projects/spring-data-build/actions/maven-build@main
+        uses: spring-projects/spring-data-build/actions/maven-build@4.1.x
         with:
           additional-options: '-Ddevelocity.cache.local.enabled=false -Ddevelocity.cache.remove.enabled=false -Pwith-bom-client'
           settings-xml: '${{ vars.SETTINGS_XML }}'
@@ -30,13 +30,13 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - name: Setup Java and Maven
-        uses: spring-projects/spring-data-build/actions/setup-maven@main
+        uses: spring-projects/spring-data-build/actions/setup-maven@4.1.x
         with:
           java-version: 'main'
           develocity-access-key: '${{ secrets.DEVELOCITY_ACCESS_KEY }}'
       - name: Deploy to Artifactory
         if: ${{ github.repository_owner == 'spring-projects' }}
-        uses: spring-projects/spring-data-build/actions/maven-artifactory-deploy@main
+        uses: spring-projects/spring-data-build/actions/maven-artifactory-deploy@4.1.x
         with:
           build-name: 'spring-data-bom'
           additional-options: '-Ddevelocity.cache.local.enabled=false -Ddevelocity.cache.remove.enabled=false'
