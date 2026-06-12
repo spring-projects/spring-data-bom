@@ -19,7 +19,10 @@ jobs:
           java-version: 'main'
           develocity-access-key: ''
       - name: Verify Artifacts with BOM client
-        run: ./mvnw -Ddevelocity.cache.local.enabled=false -Ddevelocity.cache.remove.enabled=false -Pwith-bom-client verify -B -U
+        uses: spring-projects/spring-data-build/actions/maven-build@3.5.x
+        with:
+          additional-options: '-Ddevelocity.cache.local.enabled=false -Ddevelocity.cache.remove.enabled=false -Pwith-bom-client'
+          settings-xml: '${{ vars.SETTINGS_XML }}'
   build-snapshots:
     name: Build and deploy snapshots
     runs-on: ubuntu-latest
