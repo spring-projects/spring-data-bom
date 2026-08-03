@@ -3,14 +3,14 @@ name: Snapshots
 on:
   workflow_dispatch:
   push:
-    branches: [ main ]
+    branches: [ main, 'release/**' ]
 
 permissions: read-all
 
 jobs:
   verify:
     name: Verify artifacts with BOM client
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.ACTION_RUNNER || 'ubuntu-latest' }}
     steps:
       - uses: actions/checkout@v6
       - name: Setup Java and Maven
@@ -19,13 +19,19 @@ jobs:
           java-version: 'main'
           develocity-access-key: ''
       - name: Verify Artifacts with BOM client
+        if: ${{ github.repository_owner == 'spring-projects' }}
         uses: spring-projects/spring-data-build/actions/maven-build@main
+        env:
+          OSS_ARTIFACTORY_USR: '${{ secrets.ARTIFACTORY_USERNAME }}'
+          OSS_ARTIFACTORY_PSW: '${{ secrets.ARTIFACTORY_PASSWORD }}'
+          COMMERCIAL_ARTIFACTORY_USR: '${{ secrets.COMMERCIAL_ARTIFACTORY_USERNAME }}'
+          COMMERCIAL_ARTIFACTORY_PSW: '${{ secrets.COMMERCIAL_ARTIFACTORY_PASSWORD }}'
         with:
           additional-options: '-Ddevelocity.cache.local.enabled=false -Ddevelocity.cache.remove.enabled=false -Pwith-bom-client'
           settings-xml: '${{ vars.SETTINGS_XML }}'
   build-snapshots:
     name: Build and deploy snapshots
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.ACTION_RUNNER || 'ubuntu-latest' }}
     needs: verify
     steps:
       - uses: actions/checkout@v6
@@ -37,12 +43,12 @@ jobs:
       - name: Deploy to Artifactory
         if: ${{ github.repository_owner == 'spring-projects' }}
         uses: spring-projects/spring-data-build/actions/maven-artifactory-deploy@main
+        env:
+          OSS_ARTIFACTORY_USR: '${{ secrets.ARTIFACTORY_USERNAME }}'
+          OSS_ARTIFACTORY_PSW: '${{ secrets.ARTIFACTORY_PASSWORD }}'
+          COMMERCIAL_ARTIFACTORY_USR: '${{ secrets.COMMERCIAL_ARTIFACTORY_USERNAME }}'
+          COMMERCIAL_ARTIFACTORY_PSW: '${{ secrets.COMMERCIAL_ARTIFACTORY_PASSWORD }}'
         with:
           build-name: 'spring-data-bom'
           additional-options: '-Ddevelocity.cache.local.enabled=false -Ddevelocity.cache.remove.enabled=false'
-          username: '${{ secrets.ARTIFACTORY_USERNAME }}'
-          password: '${{ secrets.ARTIFACTORY_PASSWORD }}'
-          context-url: '${{ vars.ARTIFACTORY_CONTEXT_URL }}'
-          repository: '${{ vars.ARTIFACTORY_REPOSITORY }}'
-          project: '${{ vars.ARTIFACTORY_PROJECT }}'
           settings-xml: '${{ vars.SETTINGS_XML }}'
