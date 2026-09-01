@@ -13,6 +13,10 @@
 	</description>
 	<url>https://github.com/spring-projects/spring-data-bom</url>
 
+	<modules>
+		<module>bom</module>
+	</modules>
+
 	<organization>
 		<name>Pivotal Software, Inc.</name>
 		<url>https://www.spring.io</url>
@@ -66,9 +70,9 @@
 		</license>
 	</licenses>
 
-	<modules>
-		<module>bom</module>
-	</modules>
+	<properties>
+		<project.build.outputTimestamp>2099-12-31T23:59:59Z</project.build.outputTimestamp>
+	</properties>
 
 	<build>
 		<plugins>
@@ -102,6 +106,5 @@
 			</modules>
 		</profile>
 	</profiles>
-
 
 </project>
