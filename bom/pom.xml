@@ -18,17 +18,6 @@
 		<url>https://www.spring.io</url>
 	</organization>
 
-	<scm>
-		<url>https://github.com/spring-projects/spring-data-bom</url>
-		<connection>scm:git:git://github.com/spring-projects/spring-data-bom.git</connection>
-		<developerConnection>scm:git:ssh://git@github.com:spring-projects/spring-data-bom.git</developerConnection>
-	</scm>
-
-	<issueManagement>
-		<system>GitHub</system>
-		<url>https://github.com/spring-projects/spring-data-bom/issues</url>
-	</issueManagement>
-
 	<developers>
 		<developer>
 			<id>mpaluch</id>
@@ -66,6 +55,20 @@
 		</license>
 	</licenses>
 
+	<scm>
+		<url>https://github.com/spring-projects/spring-data-bom</url>
+		<connection>scm:git:git://github.com/spring-projects/spring-data-bom.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com:spring-projects/spring-data-bom.git</developerConnection>
+	</scm>
+
+	<issueManagement>
+		<system>GitHub</system>
+		<url>https://github.com/spring-projects/spring-data-bom/issues</url>
+	</issueManagement>
+
+	<properties>
+		<project.build.outputTimestamp>2099-12-31T23:59:59Z</project.build.outputTimestamp>
+	</properties>
 
 	<dependencyManagement>
 		<dependencies>
